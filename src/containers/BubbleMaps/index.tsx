@@ -57,7 +57,7 @@ const BubbleMapsPage: React.FC = () => {
           fillColor={'#006400'}
           center={[product.location.x, product.location.y]}>
           <Tooltip direction="right" offset={[-8, -2]} opacity={1}>
-            <span>{`${product.destination}`}</span>
+            <span>{`${product.destination || 'Destination N/A'}`}</span>
             <br></br>
             {plotMenuLabel && (
               <span>{`${
@@ -92,9 +92,9 @@ const BubbleMapsPage: React.FC = () => {
           </Space>
         </Space>
         <MapContainer
-          zoom={1}
+          zoom={3}
           center={[-0.09, 51.505]}
-          style={{ height: '480px', width: '100%' }}>
+          style={{ height: '600px', width: '100%' }}>
           <TileLayer url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {plotMenuLabel !== 'Select...' && (
             <MarkerClusterGroup>{getMapMarkers()}</MarkerClusterGroup>
