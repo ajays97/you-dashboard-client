@@ -37,7 +37,7 @@ const ProductsListPage: React.FC = () => {
   useDocumentTitle(title);
 
   const paginationOptions: PaginationProps = {
-    defaultPageSize: 30,
+    defaultPageSize: 10,
     responsive: true
   };
 
@@ -156,13 +156,29 @@ const ProductsListPage: React.FC = () => {
             }}
             value={filterCondition}
             defaultValue={FilterCondition.EQUAL}>
-            <Option value={FilterCondition.EQUAL}>=</Option>
-            <Option value={FilterCondition.GREATER_THAN}>{'>'}</Option>
-            <Option value={FilterCondition.GREATER_THAN_OR_EQUAL}>
+            <Option key={FilterCondition.EQUAL} value={FilterCondition.EQUAL}>
+              =
+            </Option>
+            <Option
+              key={FilterCondition.GREATER_THAN}
+              value={FilterCondition.GREATER_THAN}>
+              {'>'}
+            </Option>
+            <Option
+              key={FilterCondition.GREATER_THAN_OR_EQUAL}
+              value={FilterCondition.GREATER_THAN_OR_EQUAL}>
               {'>='}
             </Option>
-            <Option value={FilterCondition.LESSER_THAN}>{'<'}</Option>
-            <Option value={FilterCondition.LESSER_THAN_OR_EQUAL}>{'<='}</Option>
+            <Option
+              key={FilterCondition.LESSER_THAN}
+              value={FilterCondition.LESSER_THAN}>
+              {'<'}
+            </Option>
+            <Option
+              key={FilterCondition.LESSER_THAN_OR_EQUAL}
+              value={FilterCondition.LESSER_THAN_OR_EQUAL}>
+              {'<='}
+            </Option>
           </Select>
           <InputNumber
             disabled={filterMenuLabel === 'Select...'}
